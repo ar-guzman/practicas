@@ -21,7 +21,7 @@ div.nav-bar-top {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100px;
+  height: 80px;
   width: 100vw;
 }
 
@@ -57,13 +57,13 @@ div.nav-bar-top {
 }
 
 .info-header {
-  height: 32vh;
+  height: 30vh;
   background: #0090ff9c;
 }
 
 .info-header > label {
   width: 100%;
-  height: 22vh;
+  height: 23vh;
   text-align: center;
   display: block;
   margin: 0 auto;
@@ -113,12 +113,12 @@ div.nav-bar-top {
 
 
 #main{
-  height: calc(100vh - 100px);
+  height: calc(100vh - 80px);
   width: 100vw;
   overflow: auto;
   position: relative;
   background: #eaebee;
-  top: 100px;
+  top: 80px;
   left: 0;
 }
 
@@ -255,10 +255,10 @@ p {
   position: absolute;
   height: 40px;
   width: 150px;
-  color: white;
+  color: #535363;
   border-radius: 5px;
   font-size: larger;
-  background: linear-gradient(to right, #00ffd79c, #0029ff,#00ffd79c);
+  background: linear-gradient(to right, #3dd4e09c, #2986d6,#3dd4e09c);
   background-size: 200%;
   right: 10px;
   border: none;
