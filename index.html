@@ -3,19 +3,46 @@
   <title>FIUSAC PRACTICAS GRUPO 16</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="./static/css/main.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
 </head>
 <body>
   <div class="nav-bar-top">
     <img src="./static/media/logotipo-usac-invertido.png" width="300" height="100">
-  </div>
-  <div id="main">
-    <div class="col">
-      <div class="titulo"><h4><center>Publicaciones</center></h4></div>
-      <ul id="post">
-        <li><button id="practica1">Practica 1</button></li>
+    <div>
+      <ul>
+        <li><button id="Home">Home<span></span></button></li>
+        <li><button id="about">Acerca de</button></li>
+        <li><button id="actividades">Actividades</button></li>
       </ul>
     </div>
-    <div class="col" id="window"></div>
+  </div>
+  <div id="main">
+    <!-- <div class="col">
+      <div class="titulo"><h4><center>Publicaciones</center></h4></div>
+      <ul class="side-bar">
+        <li><button id="practica1">Practica 1</button></li>
+        <li><button id="practica2">Practica 2</button></li>
+      </ul>
+    </div> -->
+    <div class="info-header">
+      <label class="transition">GRUPO 16</label>
+      <label>Practicas intermedias/iniciales segundo semestre 2018.</label>
+    </div>
+    <div class="col" id="window">      
+      <div class="blog-post">
+        <div class="blog-header">
+          <div>
+              <label>1</label>
+              <a>Practica 1: Mantenimiento de un equipo.</a>
+          </div>          
+          <img src="./static/media/practica1-foto.jpeg">
+        </div>
+        <div class="blog-body">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat quibusdam esse iure magnam quo impedit, consectetur perspiciatis natus facilis doloribus dolor inventore maiores, repudiandae temporibus dolores repellendus corporis dolorum aut? </p>
+          <button>Visitar post</button>
+        </div>
+      </div>
+    </div>
   </div>
   <script src="./static/js/main.js"></script>
 </body>
