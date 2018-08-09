@@ -10,40 +10,43 @@
     <img src="./static/media/logotipo-usac-invertido.png" width="240" height="80">
     <div>
       <ul>
-        <li><button id="Home">Home<span></span></button></li>
+        <li><button id="home" href="/">Home<span></span></button></li>
         <li><button id="about">Acerca de</button></li>
         <li><button id="actividades">Actividades</button></li>
+        <li><button id="foro">Foro</button></li>
       </ul>
     </div>
   </div>
-  <div id="main">
-    <!-- <div class="col">
-      <div class="titulo"><h4><center>Publicaciones</center></h4></div>
-      <ul class="side-bar">
-        <li><button id="practica1">Practica 1</button></li>
-        <li><button id="practica2">Practica 2</button></li>
-      </ul>
-    </div> -->
+  <div id="main" class="active">
     <div class="info-header">
       <label class="transition">GRUPO 16</label>
       <label>Practicas intermedias/iniciales segundo semestre 2018.</label>
     </div>
-    <div class="col" id="window">      
+    <div class="col" id="window">
       <div class="blog-post">
         <div class="blog-header">
           <div>
               <label>1</label>
               <a>Practica 1: Mantenimiento de un equipo.</a>
-          </div>          
+          </div>
           <img src="./static/media/practica1-foto.jpeg">
         </div>
         <div class="blog-body">
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat quibusdam esse iure magnam quo impedit, consectetur perspiciatis natus facilis doloribus dolor inventore maiores, repudiandae temporibus dolores repellendus corporis dolorum aut? </p>
-          <button>Visitar post</button>
+          <p>INFORME 1: Mantenimiento de una maquina, se busca que el estudiante aprenda los componentes principales de una computadora.
+            Los pasos a seguir y el desarrollo de la actividad se encontrarán al dar click en ver post.
+          </p>
+          <button class="go-post" value="1">Visitar post</button>
         </div>
       </div>
     </div>
   </div>
+  <div id="sub-main"></div>
+  <div class="modal hidden">
+    <button class="close">x</button>
+    <div class="modal-window" id="modal-window">
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
   <script src="./static/js/main.js"></script>
 </body>
 </html>

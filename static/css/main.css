@@ -78,7 +78,7 @@ div.nav-bar-top {
   height: 7vh;
 }
 
-.nav-bar-top > div > ul button{  
+.nav-bar-top > div > ul button{
   padding: 3vh 1vw;
   color: antiquewhite;
   font-size: 3vh;
@@ -97,7 +97,7 @@ div.nav-bar-top {
   100% { box-shadow: 0 0 0 25px transparent; transform: scale3d(1, 1, 1);}
 }
 
-.nav-bar-top > div > ul li:hover button{  
+.nav-bar-top > div > ul li:hover button{
   padding: 3vh 2.5px;
   color: rgb(0, 225, 255);
   margin-left: 5px;
@@ -112,7 +112,7 @@ div.nav-bar-top {
 }
 
 
-#main{
+#main,#sub-main{
   height: calc(100vh - 80px);
   width: 100vw;
   overflow: auto;
@@ -121,6 +121,8 @@ div.nav-bar-top {
   top: 80px;
   left: 0;
 }
+
+#sub-main{ display: none;}
 
 h1{
   padding-top:20px;
@@ -133,12 +135,13 @@ h1{
   font-size: 48px;
 }
 
-.titulo h4{
-  color:white;
-  background: #00274e;
-  font-size: 5vh;
-  border-radius: 5px 5px 0 0;
-  padding: 20px 0;
+
+h4 {
+    font-size: 36px;
+    padding-top: 10%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: white;
 }
 
 ul {
@@ -177,30 +180,30 @@ ul.side-bar button:hover{
 
 p {
   padding: 5px 25px;
-  font-size: 2.5vh;
+  font-size: 16px;
   text-align: justify;
   width: calc(100% - 160px);
   color: #3f6486;
   opacity: 0;
-  animation: textleft 1s forwards ease-in;
+  animation: textleft 1s forwards ease-out;
   animation-delay: 2s;
 }
 
 @keyframes textup{
   0%{ margin-top: 100%; opacity: 0; visibility: hidden; }
-  50% { margin-top: 50%; opacity: 0.5; visibility: visible; }  
-  100% { margin-top: 0; opacity: 1; }  
+  50% { margin-top: 50%; opacity: 0.5; visibility: visible; }
+  100% { margin-top: 0; opacity: 1; }
 }
 
 @keyframes textleft{
   0%{ margin-left: 100%; opacity: 0; visibility: hidden; }
-  50% { margin-left: 50%; opacity: 0.5; visibility: visible; }  
-  100% { margin-left: 0; opacity: 1; }  
+  50% { margin-left: 50%; opacity: 0.5; visibility: visible; }
+  100% { margin-left: 0; opacity: 1; }
 }
 
 #window {
   padding: 5px 25px;
-  min-height: 44.5vh;
+  min-height: 57.5vh;
   background-color:white;
 }
 
@@ -209,7 +212,7 @@ p {
   margin: .5vh auto 2vh;
   border: 1px solid #ccc;
   border-color: transparent #ccc #ccc;
-  height: 50vh;
+  height: 75vh;
   position: relative;
   animation: textup 2s ease-in-out;
 }
@@ -220,7 +223,7 @@ p {
 
 .blog-header > div {
   background: #556073;
-  height: 19%;
+  height: 13%;
   margin-bottom: 1%;
 }
 
@@ -229,9 +232,9 @@ p {
   display: inline-block;
   vertical-align: top;
   height: 25%;
-  width: 90%;    
+  width: 90%;
   padding: 0.5em;
-  font-size: 3.25vh;
+  font-size: 21px;
 }
 
 .blog-header > div > label:first-child{
@@ -243,7 +246,7 @@ p {
 
 .blog-header img{
   width: 50%;
-  height: 75%;
+  height: 80%;
   margin-left: 25%;
 }
 
@@ -258,22 +261,175 @@ p {
   color: #535363;
   border-radius: 5px;
   font-size: larger;
-  background: linear-gradient(to right, #3dd4e09c, #2986d6,#3dd4e09c);
+  background: linear-gradient(to right, #3dd4e09c, #2986d6ba,#3dd4e09c);
   background-size: 200%;
   right: 10px;
   border: none;
-  top: calc(50vh - 50px);
+  top: calc(75vh - 50px);
   box-shadow: 0px 12px 14px -9px #080433;
   animation: transicion 1s forwards;
   opacity: 0;
-  animation-delay: 4s;
+  animation-delay: 2.5s;
   transition: 1s linear;
 }
 
 .blog-body > button:hover{
-  background-position: 100%; 
+  background-position: 100%;
   box-shadow: none;
   transition: 1s linear;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle,#ffffff,#888686,#3a3939);
+}
 
+.hidden{
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.modal-window {
+  max-height: 90vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  height: 90vh;
+  width: 90vw;
+  background: white;
+}
+
+.modal-header{
+  background:#021B2B;
+  width:100%;
+  height: 20%;
+  border-radius: 5px 5px 0 0;
+  position:relative;
+}
+
+.modal-body{
+  padding:25px;
+  height: 80%;
+  overflow: auto;
+  width: 99.5%;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+.modal-body a{
+  display: block;
+  animation: textleft 1s forwards linear;
+  animation-delay: 2s;
+  text-align: justify;
+}
+
+.modal-body p{
+  animation: textleft 1s forwards linear;
+  animation-delay: 2s;
+  width: 100%;
+  padding:5px;
+}
+
+button.close {
+  font-size: 36px;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: none;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
+  background: white;
+}
+
+button.close:hover{
+  color:#ffffff; opacity:1;
+  background: #060606;
+}
+
+.titulo{
+  font-size: 40px;
+  color: #00274e;
+  text-align: left;
+}
+
+.section{
+  background: #cacaca;
+  width: 100%;
+  padding: 2px;
+  position: relative;
+  max-height: 75vh;
+  opacity: 0;
+  animation: textleft 1s forwards linear;
+  animation-delay: 4s;
+}
+
+.section iframe{
+  height: 70vh;
+  width: 80%;
+}
+
+button.show{
+  font-size: 20px;
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid white;
+  color: #102d20;
+  background: #4880da;
+}
+
+button.show:hover{
+  box-shadow: 0 0 20px 3px #ffffff;
+}
+
+button.show.clicked{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: #628bb9cc;
+  transition: 1s;
+  width: 150px;
+}
+button.show.clicked:hover{
+  background: #628bb9;
+}
+
+.about p{animation-timing-function: linear; animation-delay:1s; display: inline-block;}
+.about {margin:2.5vh; padding:2.5vh; background: white;}
+.linear {
+  position: relative;
+  margin: 1vw;
+  height: 1px;
+  background: #31414c;
+  animation: transicion 1s linear;
+}
+
+.linear::after{
+  content: "";
+  background: #31414c;
+  box-shadow: inset 0 0 0 0 white;
+  border: 10px solid white;
+  margin-left: 50%;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+}
+.actividades.first { margin-top:2vh; background: #eaebee; animation: transicion 1s linear;}
+.actividades.first p { font-size: 24px; color:black; }
+.actividades p:first-child{width: 4%;}
+.actividades p:nth-child(2){width: 14%;}
+.actividades p:nth-child(3){width: 50%;}
+.actividades p:nth-child(4){width: 30%;}
