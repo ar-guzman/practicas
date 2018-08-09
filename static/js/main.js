@@ -180,4 +180,10 @@
       submain.innerHTML =`<div class="about"><h1>No se pudo cargar</h1><div class="linear"></div><p class="titulo">Esta funcionalidad está pendiente.</p></div>`
     });
 
+    document.getElementById('home').addEventListener('click',()=>{
+      renderSubMain();
+      main.style.display = '';
+      main.style.display = '';
+    });
+
 })(_)
