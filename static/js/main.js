@@ -177,7 +177,7 @@
 
     document.getElementById('foro').addEventListener('click',()=>{
       renderSubMain();
-      submain.innerHTML =`<div class="about"><h1>No se pudo cargar</h1><p class="titulo">Esta funcionalidad está pendiente.</p></div>`
+      submain.innerHTML =`<div class="about"><h1>No se pudo cargar</h1><div class="linear"></div><p class="titulo">Esta funcionalidad está pendiente.</p></div>`
     });
 
 })(_)
