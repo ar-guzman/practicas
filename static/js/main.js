@@ -147,53 +147,59 @@
                                         `Que el estudiante plantee soluciones para la grabación y edición de video de escritorio.
                                         Familiarizar al estudiante con el entorno Linux, instalando cualquiera de la amplia variedad de distribuciones
                                         que este ofrece.
-                                        Plantear soluciones para instalar Linux, sin necesidad de eliminar por completo, el sistema operativo
+                                        <br>Plantear soluciones para instalar Linux, sin necesidad de eliminar por completo, el sistema operativo
                                         Windows.
-                                        Que el estudiante investigue sobre las diferentes opciones que existen en Internet, para poder publicar el
+                                        <br>Que el estudiante investigue sobre las diferentes opciones que existen en Internet, para poder publicar el
                                         video realizado.`,
                                         'Descripción',
-                                        `Se elaboró un video-tutorial de "MANTENIMIENTO DE UNA COMPUTADORA". El video se encuentra en la parte de
-                                        abajo dentro de este mismo cuadro. En el video se explica como darle mantenimiento a un equipo Acer Aspire 3680/ZR1,
-                                        también están el manual y el trifoliar requeridos. Finalmente se encontrarán los links que nos sirvieron de guía para
-                                        realizar esta práctica.`,
-                                        'Manuales y desarrollo de la práctica'
+                                        `Se realizaron 2 videos donde se explica como instalar linux junto a windows como solución al problema planteado,
+                                        en el primer video se instala la última versión de ubuntu (18.04 LTS) junto a una versión de windows, se realizó
+                                        sobre una máquina virtual para facilitar la captura del escritorio. En el segundo video mostramos como crear un cable de
+                                        red para conectar dos máquinas y las configuraciones correspondientes con diferentes sistemas operativos,
+                                        así como la misma configuración para redes inalámbricas.`,
+                                        'Videos del desarrollo de la práctica'
                                       ],},
                           'blog-post');
-                      let divs = [createElement('div',{class:"section"}),createElement('div',{class:"section"}),createElement('div',{class:"section"})];
-                      divs[0].appendChild(createElement('button',{class:'show','textContent':'Mostrar Trifoliar PDF',url:"https://drive.google.com/file/d/11ZezDrcscWrlgLc5hoMPA_dXSRRViG9g/preview",index:1}));
-                      divs[1].appendChild(createElement('button',{class:'show','textContent':'Mostrar Manual PDF',url:"https://drive.google.com/file/d/1dKGUL7YdU3nySuZ8jTFPfDeZjQPV6XsX/preview",index:2}));
-                      divs[2].appendChild(createElement('button',{class:'show','textContent':'Mostrar Video',url:"https://www.youtube.com/embed/https://www.youtube.com/embed/jLDT6dF9MUE&?playlist=jLDT6dF9MUE&loop=1",index:3}));
+                      let divs = [createElement('div',{class:"section"}),createElement('div',{class:"section"}),createElement('div',{class:"section"}),createElement('div',{class:"section"})];
+                      divs[0].appendChild(createElement('button',{class:'show','textContent':'VIDEO 1 (YOUTUBE)',url:"https://www.youtube.com/embed/rr9hXvsZhkA?playlist=rr9hXvsZhkA&loop=1",index:1, name:"VIDEO 1 (YOUTUBE)"}));
+                      divs[1].appendChild(createElement('button',{class:'show','textContent':'VIDEO 2 (YOUTUBE)',url:"https://www.youtube.com/embed/hjJVumplIow?playlist=hjJVumplIow&loop=1",index:2, name:"VIDEO 2 (YOUTUBE)"}));
+                      divs[2].appendChild(createElement('button',{class:'show','textContent':'VIDEO 1 (VIMEO)',url:"https://player.vimeo.com/video/286289937",index:3, name:"VIDEO 1 (VIMEO)"}));
+                      divs[3].appendChild(createElement('button',{class:'show','textContent':'VIDEO 2 (VIMEO)',url:"https://player.vimeo.com/video/286280546",index:4, name:"VIDEO 2 (VIMEO)"}));
                       let modalBody = modal.querySelector('.modal-body');
                       modalBody.appendChild(divs[0]);
                       modalBody.appendChild(divs[1]);
                       modalBody.appendChild(divs[2]);
+                      modalBody.appendChild(divs[3]);
                       modalBody.querySelectorAll('button.show').forEach((item)=>{item.addEventListener('click',()=>{
                         let index = Number(item.getAttribute('index'));
                         if(item.classList.contains('clicked')){
                           item.classList.remove('clicked');
                           item.parentNode.querySelector('iframe').remove();
                           item.parentNode.style.background = "";
-                          item.textContent = (index==2)?'Mostrar Manual PDF':(index==1)?'Mostrar Trifoliar PDF':'Mostrar Video';
+                          item.textContent = item.getAttribute("name");
                         }
                         else{
                           item.classList.add('clicked');
-                          item.textContent = (index==3)?'Cerar Video':'Cerrar PDF';
+                          item.textContent = 'Cerrar Video';
                           item.parentNode.insertBefore(createElement('iframe',{src:item.getAttribute('url')}),item.nextSibling);
                           item.parentNode.style.background = "black";
                         }
                       });
                     });
                     let docFrag = document.createElement('template');
-                    renderTemplate(docFrag,{title:'Link a los documentos del grupo',links:[
-                      ["https://drive.google.com/open?id=11ZezDrcscWrlgLc5hoMPA_dXSRRViG9g",'Trifoliar en drive'],
-                      ["https://drive.google.com/open?id=1dKGUL7YdU3nySuZ8jTFPfDeZjQPV6XsX",'Manual de mantenimiento en drive'],
-                      ["https://youtu.be/jLDT6dF9MUE","Video de la practica"]
+                    renderTemplate(docFrag,{title:'Link a los videos',links:[
+                      ["https://www.youtube.com/watch?v=rr9hXvsZhkA",'Video 1 (YOUTUBE)'],
+                      ["https://www.youtube.com/watch?v=hjJVumplIow",'Video 2 (YOUTUBE)'],
+                      ["https://vimeo.com/286289937",'Video 1 (VIMEO)'],
+                      ["https://vimeo.com/286280546",'Video 2 (VIMEO)'],
                       ]},'links');
                     modalBody.appendChild(docFrag.content.cloneNode(true));
                     let newDocFrag = document.createElement('template');
-                    renderTemplate(newDocFrag,{title:'Link a los documentos y videos de apoyo',links:[
-                      ["https://www.youtube.com/watch?v=93RzkL6dKyE&t=64s",'Video para abrir la computadora Acer Aspire 3680/ZR1'],
-                      ["https://www.dell.com/support/article/gt/es/gtbsdt1/sln290711/mantenimiento-general-que-debe-realizar-para-hacer-mantenimiento-a-su-computadora-dell?lang=es",'Guía de mantenimiento general a una computadora'],
+                    renderTemplate(newDocFrag,{title:'Link a descargas y documentos de apoyo',links:[
+                      ["http://releases.ubuntu.com/18.04/",'Descargar Ubuntu 18.04 LTS'],
+                      ["https://www.tecmint.com/install-ubuntu-16-04-alongside-with-windows-10-or-8-in-dual-boot/",'Como instalar Ubuntu junto a windows'],
+                      ["http://informatica.gonzalonazareno.org/plataforma/pluginfile.php/1557/mod_resource/content/0/Latiguillo_UTP_Directo.pdf",'Pasos para crear un cable de red'],
+                      ["https://sites.google.com/site/portafoliobeatrizelizabeth/unidad-tres-1/configuracion-de-cable-utp",'Configuraciones de cables de red'],
                       ]},'links');
                     modalBody.appendChild(newDocFrag.content.cloneNode(true));
                   }
