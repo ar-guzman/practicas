@@ -204,6 +204,52 @@
                     modalBody.appendChild(newDocFrag.content.cloneNode(true));
                   }
                   break;
+                  case 3:{
+                  renderTemplate(modal,
+                        {title:'PRACTICA3: COMPARTIR ARCHIVOS E IMPRESORAS EN UNA RED A DISTINTOS SOs',
+                        image: "./static/media/practica3-foto.jpeg",
+                        instructions: ['Objetivos',
+                                       'Aplicar los conocimientos adquiridos en los diferentes informes realizados anteriormente, con el fin de evaluar \
+										presencialmente la aplicación de estos conocimientos.',
+                                       'Descripción',
+                                       `Se elaboró un video-tutorial de "COMO COMPARTIR CARPETAS ENTRE SOs WINDOWS Y LINUX". El video se encuentra en la parte de
+                                       abajo dentro de este mismo cuadro. En el video se explica como compartir carpetas entre Windows y Ubuntu, además de como configurar
+                                       el acceso remoto entre los distintos sistemas operativos y finalmente como compartir una impresora dentro de la red.`,
+                                       'Video de la practica'
+                                    ],},
+                        'blog-post');
+                    let divs = [createElement('div',{class:"section"})];
+                    divs[0].appendChild(createElement('button',{class:'show','textContent':'Mostrar Video',url:"https://www.youtube.com/embed/8xS_rJ-KK5E?playlist=8xS_rJ-KK5E&loop=1",index:1}));
+                    let modalBody = modal.querySelector('.modal-body');
+                    modalBody.appendChild(divs[0]);
+                    modalBody.querySelectorAll('button.show').forEach((item)=>{item.addEventListener('click',()=>{
+                      if(item.classList.contains('clicked')){
+                        item.classList.remove('clicked');
+                        item.parentNode.querySelector('iframe').remove();
+                        item.parentNode.style.background = "";
+                      }
+                      else{
+                        item.classList.add('clicked');
+                        item.textContent = 'Cerar Video';
+                        item.parentNode.insertBefore(createElement('iframe',{src:item.getAttribute('url')}),item.nextSibling);
+                        item.parentNode.style.background = "black";
+                      }
+                    });
+                  });
+                  let docFrag = document.createElement('template');
+                  renderTemplate(docFrag,{title:'Link a los videos',links:[
+                    ["https://youtu.be/8xS_rJ-KK5E",'VIDEO TUTORIAL'],
+                    ]},'links');
+                  modalBody.appendChild(docFrag.content.cloneNode(true));
+                  let newDocFrag = document.createElement('template');
+                  renderTemplate(newDocFrag,{title:'Link a los documentos y videos de apoyo',links:[
+                    ["https://www.howtogeek.com/176471/how-to-share-files-between-windows-and-linux/",'Cómo compartir carpetas entre windows y ubuntu'],
+                    ["https://winscp.net/eng/docs/guide_windows_openssh_server",'Instalar ssh en windows'],
+                    ["https://www.howtogeek.com/191323/how-to-share-printers-between-windows-mac-and-linux-pcs-on-a-network/","Compartir impresora entre windows y ubuntu"]
+                    ]},'links');
+                  modalBody.appendChild(newDocFrag.content.cloneNode(true));
+              	}
+                break;
                 default:
                   break;
             }
