@@ -24,7 +24,7 @@
             <% if(index%2==0){ %>
                 <p class="titulo"><%= item %></p>
             <% }else{ %>
-                <p><%= item %></p>
+                <p><%= item %></p>s
             <% } %>
         <% }); %>
         </div>
@@ -250,6 +250,60 @@
                   modalBody.appendChild(newDocFrag.content.cloneNode(true));
               	}
                 break;
+                case 4:{
+                    renderTemplate(modal,
+                    {title:'PROYECTO FINAL: FUNDAMENTOS E IMPLEMENTACION DE UNA RED DE COMPUTADORA',
+                        image: "./static/media/practica3-foto.jpeg",
+                        instructions: ['Objetivos',
+                            '1. Entender los fundamentos de las redes de computadores, servicios y protocolos utilizados para la\n' +
+                            'comunicación.\n' +
+                            '2. Poner en práctica las distintas actividades que se han realizado en clase.\n' +
+                            '3. Que el estudiante investigue las distintas configuraciones que en la actualidad se piden.\n' +
+                            '4. Trabajar en equipo para la integración de proyectos.',
+                            'Descripción',
+                            `Servicios que configurar:
+                                1.Servidor de Virtualización <br />2. Servidor de Usuarios<br />3. Servidor de IPs dinámicas <br />
+                                4. Recursos Compartidos <br /> 5. Servidor de Correo Electrónico <br /> 6. Microsoft Exchange Server 2010 o 2013 <br />
+                                7. Servidor web <br />  8. Servidor telnet <br />  9. Servidor ftp <br />
+                                10. Acceso Remoto <br /> 11. Servidor Proxy
+                            `,
+                            'Material de apoyo'
+                        ],},
+                    'blog-post');
+                    let divs = [createElement('div',{class:"section"}),createElement('div',{class:"section"}),createElement('div',{class:"section"}),createElement('div',{class:"section"}),createElement('div',{class:"section"})];
+                    divs[0].appendChild(createElement('button',{class:'show','textContent':'Microsoft Exchange',url:"https://www.youtube.com/embed/Z7nA0mpaSWQ?playlist=Z7nA0mpaSWQ&loop=1",index:1}));
+                    divs[1].appendChild(createElement('button',{class:'show','textContent':'Active Directory',url:"https://www.youtube.com/embed/VkcoX8_v4IQ?playlist=VkcoX8_v4IQ&loop=1",index:1}));
+                    divs[2].appendChild(createElement('button',{class:'show','textContent':'Servidor Proxy',url:"https://www.youtube.com/embed/8Dp6nfoOjrI?playlist=8Dp6nfoOjrI&loop=1",index:1}));
+                    divs[3].appendChild(createElement('button',{class:'show','textContent':'POP/SMTP',url:"https://www.youtube.com/embed/fh4J4Zn74IY?playlist=fh4J4Zn74IY&loop=1",index:1}));
+                    let modalBody = modal.querySelector('.modal-body');
+                    divs.forEach(item=>modalBody.appendChild(item));
+                    modalBody.querySelectorAll('button.show').forEach((item)=>{item.addEventListener('click',()=>{
+                        if(item.classList.contains('clicked')){
+                            item.classList.remove('clicked');
+                            item.parentNode.querySelector('iframe').remove();
+                            item.parentNode.style.background = "";
+                        }
+                        else{
+                            item.classList.add('clicked');
+                            item.textContent = 'Cerar Video';
+                            item.parentNode.insertBefore(createElement('iframe',{src:item.getAttribute('url')}),item.nextSibling);
+                            item.parentNode.style.background = "black";
+                        }
+                    });
+                    });
+                    let docFrag = document.createElement('template');
+                    renderTemplate(docFrag,{title:'Link a los videos',links:[
+                            ["https://www.youtube.com/watch?v=Z7nA0mpaSWQ",'Microsoft Exchange desde 0'],
+                            ["https://www.youtube.com/watch?v=fh4J4Zn74IY",'SMTP']
+                        ]},'links');
+                    modalBody.appendChild(docFrag.content.cloneNode(true));
+                    let newDocFrag = document.createElement('template');
+                    renderTemplate(newDocFrag,{title:'Link a los documentos de apoyo',links:[
+                            ["https://www.faqforge.com/windows-server-2016/add-new-domain-forest-windows-server-2016/",'Agregar nuevo dominio en windows server 2016'],
+                            ["https://git-scm.com/book/en/v2/Getting-Started-Installing-Git",'Cómo instalar git en ubuntu/windows'],
+                        ]},'links');
+                    modalBody.appendChild(newDocFrag.content.cloneNode(true));
+                }
                 default:
                   break;
             }
@@ -283,6 +337,8 @@
       renderTemplate(submain,{info:["Fecha y título de práticas a realizar",
         ["Informe 1","Video-tutorial de 'Mantenimiento de una Computadora'.","09/08/2018"],
         ["Informe 2","Instalación de Linux y comunicación de redes entre diversos SOs.","23/08/2018"],
+        ["Informe 3","-","-"],
+        ["Proyecto Final","Topología de red de computadoras, fundamentos","23/08/2018"],
       ]},'actividades-template');
     });
 
@@ -297,4 +353,4 @@
       main.style.display = '';
     });
 
-})(_)
+})(_);

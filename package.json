@@ -1,0 +1,22 @@
+{
+  "name": "practicas",
+  "version": "1.0.0",
+  "description": "PAGINA PRACTICAS GRUPO 16",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ar-guzman/Practicas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ar-guzman/Practicas/issues"
+  },
+  "homepage": "https://github.com/ar-guzman/Practicas#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
